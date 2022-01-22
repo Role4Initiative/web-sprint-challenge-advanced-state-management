@@ -1,8 +1,30 @@
+import { START_SMURF_FETCH, SMURF_API_FETCH, FAILED_API_FETCH, ADD_A_SMURF, ADD_ERROR_MESSAGE } from "../actions"
 
 export const initialState = {
+    smurfs: [],
+    loading: false,
+    error: "It looks like something went wrong."
 }
 
-const reducer = ()=>{
+const reducer = (state = initialState, action)=>{
+    switch(action.type) {
+        case START_SMURF_FETCH:
+            return {...state,
+                loading: true}
+        case SMURF_API_FETCH:
+            return {...state,
+                loading: false,
+                smurfs: action.payload }
+        case FAILED_API_FETCH:
+            return {...state, }
+        case ADD_A_SMURF:
+            return {...state, }
+        case ADD_ERROR_MESSAGE:
+            return {...state, }
+        default:
+
+            return state;
+    }
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
